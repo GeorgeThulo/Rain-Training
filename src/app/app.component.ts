@@ -17,12 +17,7 @@ export class AppComponent {
 
   @Select(RandomJokesState.getData) data$!: Observable<RandomJokesResponse> // change name
   @Select(RandomJokesState.isLoading) isLoading$!: Observable<boolean>
-  @Select(CategoryJokeState.getData) category$!: Observable<string[]>
-
-  //title = 'WEIRDO';
-  //first_name = ''; 
-  //last_name = '';
-  //joke ='';
+  @Select(CategoryJokeState.getCategory) category$!: Observable<string[]>
 
   constructor(
     private store: Store,

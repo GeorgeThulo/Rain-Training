@@ -5,6 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxsModule } from '@ngxs/store';
+import { RandomJokesState } from './store/states/random-jokes.state';
+import { CategoryJokeState } from './store/states/category-jokes.state';
+
+
 
 @NgModule({
   declarations: [
@@ -14,7 +19,16 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxsModule.forRoot([], {
+      selectorOptions: {
+          injectContainerState: false,
+      }
+  }),
+  NgxsModule.forFeature([
+    RandomJokesState,
+    CategoryJokeState
+  ])
   ],
   providers: [],
   bootstrap: [AppComponent]

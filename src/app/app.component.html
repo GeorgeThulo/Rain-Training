@@ -1,4 +1,4 @@
-<h1>{{title}}</h1>
+<!-- <h1>{{title}}</h1>
 
 <div class="container">
 <p>Name</p><input  type="text" placeholder="Are you weird?" [(ngModel)]="first_name"> <br>
@@ -15,4 +15,39 @@
   </div>
 <h1>{{title}}</h1>
 
+ -->
 
+
+ <ng-container *ngIf="isLoading$ | async, else loaded" >
+
+  <p>
+    loading...
+  </p>
+
+ </ng-container>
+
+ <ng-template #loaded>
+  <ng-container *ngIf="(data$ | async) as data" >
+
+    <img [src]="data?.icon_url" alt="">
+    
+    <p>
+      {{ data?.value }}
+    </p>
+  </ng-container>
+
+ </ng-template>
+
+ <button [disabled]="isLoading$ | async" (click)="onJokeCategory()">Pull category</button>
+
+ <select [disabled]="isLoading$ | async">
+  <option *ngFor="let category of (category$ | async)" [value]="category">
+    {{ category }}
+  </option>
+</select>
+
+ <button [disabled]="isLoading$ | async" (click)="onRandomJoke()">get joke</button>
+
+ <button (click)="onClear()">clear</button>
+
+ 
