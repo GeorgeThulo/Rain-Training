@@ -1,0 +1,39 @@
+
+.btn {
+        width: 80px;
+        height: 80px;
+        line-height: 80px;
+        border-radius: 50%;
+        background-color: #641906;
+        color: white;
+        align-items: center;
+        cursor: pointer; 
+        text-align: center;
+    
+}
+  .btn1 {text-align: center;}
+  .joke {text-align: center;}
+/*.btn2 {text-align: center;}*/
+.container { display: flex;
+  justify-content: center; 
+  align-items: center;  
+  gap: 10px; }
+
+  h1 {
+    color: brown;
+    text-align: center;
+    text-decoration: line-through;
+    position: relative;
+
+}
+
+h1::before {
+    content: ''; 
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px; 
+    background-color: brown;
+    transform: translateY(-50%) translateZ(-1px);
+}
